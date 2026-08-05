@@ -9,6 +9,7 @@ const userRoutes = require('./routes/user.routes');
 const documentRoutes = require('./routes/document.routes');
 const aiRoutes = require('./routes/ai.routes');
 const dashboardRoutes = require('./routes/dashboard.routes');
+const flashcardsRoutes = require('./routes/flashcards.routes');
 
 const app = express();
 
@@ -29,5 +30,6 @@ app.use('/api/user', userRoutes);
 app.use('/api/document', documentRoutes);
 app.use('/api/ai', aiRoutes);
 app.use('/api/dashboard', dashboardRoutes);
+app.use('/api/flashcards', flashcardsRoutes);
 
 module.exports = app;

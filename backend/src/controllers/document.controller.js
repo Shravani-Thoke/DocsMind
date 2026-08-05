@@ -19,10 +19,10 @@ const uploadDocument = async (req, res) => {
         .json({ message: "Uploaded file buffer is missing" });
     }
 
-    // 1️⃣ Upload to Supabase
+    //Upload to Supabase
     const fileUrl = await uploadPdfToSupabase(req.file, req.user.id);
 
-    // 2️⃣ Extract Text
+    // Extract Text
     let extractedText = "";
 
     try {
@@ -40,7 +40,7 @@ const uploadDocument = async (req, res) => {
       });
     }
 
-    // 3️⃣ Save to MongoDB
+    // Save to MongoDB
     const doc = await DocumentModel.create({
       userId: req.user.id,
       title: req.file.originalname,

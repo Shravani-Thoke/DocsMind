@@ -3,10 +3,13 @@ import icon from "../assets/icon.png";
 import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const { fetchUser } = useContext(AuthContext);
 
   const navigate=useNavigate();
 
@@ -18,6 +21,7 @@ const Login = () => {
         { email, password },
         { withCredentials: true },
       );
+      await fetchUser();
       navigate("/dashboard");
     } catch (error) {
       console.log("AXIOS ERROR:", error);

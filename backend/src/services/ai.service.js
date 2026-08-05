@@ -5,6 +5,7 @@ const groq = new Groq({
 });
 
 const generateChatResponse = async (documentText, question) => {
+  console.log(process.env.GROQ_API_KEY);
   const completion = await groq.chat.completions.create({
     model: process.env.GROQ_MODEL,
     messages: [
