@@ -10,8 +10,8 @@ import Document from "./components/Outlet/Document/Document";
 import DocumentDetail from "./components/Outlet/Document/DocumentDetail";
 import Chat from "./components/Outlet/Document/DocumentDetail/Chat";
 import FlashcardStudyPage from "./components/Outlet/Document/DocumentDetail/Flashcards/FlashcardStudyPage";
-import Profile from "./pages/Profile";
 import Flashcards from "./components/Outlet/Flashcard/Flashcards";
+import Profile from "./components/Outlet/Profile/Profile";
 
 function App() {
   return (

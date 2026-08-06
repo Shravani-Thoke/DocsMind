@@ -10,6 +10,7 @@ const documentRoutes = require('./routes/document.routes');
 const aiRoutes = require('./routes/ai.routes');
 const dashboardRoutes = require('./routes/dashboard.routes');
 const flashcardsRoutes = require('./routes/flashcards.routes');
+const profileRoutes = require('./routes/profile.routes');
 
 const app = express();
 
@@ -31,5 +32,6 @@ app.use('/api/document', documentRoutes);
 app.use('/api/ai', aiRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/flashcards', flashcardsRoutes);
+app.use('/api/profile', profileRoutes);
 
 module.exports = app;

@@ -10,12 +10,7 @@ import { AuthContext } from "../../context/AuthContext";
 const SidebarNav = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { logout } = useContext(AuthContext);
 
-  const handleLogout = async () => {
-    await logout();
-    navigate("/login");
-  };
   const menuItemStyles = {
     backgroundColor: "white",
     button: ({ active }) => ({
@@ -63,11 +58,7 @@ const SidebarNav = () => {
           Profile
         </MenuItem>
         </Menu>
-        <Menu menuItemStyles={menuItemStyles}>
-          <MenuItem icon={<LogOut />} onClick={handleLogout}>
-            Logout
-          </MenuItem>
-        </Menu>
+        
       </div>
     </Sidebar>
   );
