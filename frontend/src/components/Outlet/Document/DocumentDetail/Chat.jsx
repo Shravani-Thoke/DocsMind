@@ -140,21 +140,26 @@ useEffect(() => {
       </div>
 
       {/* Input */}
-      <div className="flex gap-2 mt-4">
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
+      <form action="" onSubmit={(e) => {
+        e.preventDefault();
+        sendMessage();
+      }}>
+        <div className="flex gap-2 mt-4">
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
           className="flex-1 border rounded-xl px-3 py-2"
           placeholder="Ask something about this document..."
         />
         <button
-          onClick={sendMessage}
+          type="submit"
           className="bg-blue-600 text-white px-4 rounded-xl"
         >
           <Send />
         </button>
       </div>
+      </form>
     </div>
   );
 };

@@ -3,11 +3,13 @@ import icon from "../assets/icon.png";
 import axios from "axios";
 import { useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Eye, EyeOff } from "lucide-react";
 
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const navigate=useNavigate();
 
@@ -37,7 +39,9 @@ const Register = () => {
   return (
     <div className="flex min-h-screen items-center justify-center bg-white">
       <div className="w-full max-w-sm space-y-6">
-        <img className="h-15 mx-auto my-2 p-0" src={icon} alt="logo" />
+     <a href="/">
+      <img className="h-15 mx-auto my-2 p-0" src={icon} alt="logo" />
+      </a>
 
         {/* Heading */}
         <div className="text-center">
@@ -83,14 +87,24 @@ const Register = () => {
               className="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black/10"
             />
 
-            <input
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              type="password"
-              placeholder="Enter your password"
-              required
-              className="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black/10"
-            />
+            <div className="relative">
+              <input
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                type={showPassword ? "text" : "password"}
+                placeholder="Enter your password"
+                required
+                className="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black/10"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                aria-label={showPassword ? "Hide password" : "Show password"}
+                className="absolute inset-y-0 right-0 flex items-center px-4 text-gray-500 hover:text-black"
+              >
+                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+              </button>
+              </div>
 
             <button type="submit" className="w-full rounded-lg bg-black px-4 py-2 text-sm font-medium text-white hover:bg-black/90 transition cursor-pointer">
               Sign Up

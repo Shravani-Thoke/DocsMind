@@ -11,8 +11,9 @@ const Nav = () => {
         </div>
 
         <div className="flex items-center gap-4 px-20 py-0">
-          <button className="text-md text-gray-600 hover:text-gray-900 cursor-pointer">Features</button>
-          <button className="text-md text-gray-600 hover:text-gray-900 cursor-pointer">About</button>
+          <button onClick={() => document.getElementById('overview').scrollIntoView({ behavior: 'smooth' })} className="text-md text-gray-600 hover:text-gray-900 cursor-pointer">Overview</button>
+          <button onClick={() => document.getElementById('features').scrollIntoView({ behavior: 'smooth' })} className="text-md text-gray-600 hover:text-gray-900 cursor-pointer">Features</button>
+          <button onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })} className="text-md text-gray-600 hover:text-gray-900 cursor-pointer">About</button>
           <Link className="px-4 py-2 rounded-xl border bg-black text-white hover:cursor-pointer " to="/login">Sign In</Link>
         </div>
       </nav>
