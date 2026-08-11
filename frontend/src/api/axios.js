@@ -11,7 +11,7 @@ import axios from "axios";
 // how we would have used it without creating an instance? we would have to specify the baseURL and withCredentials every time we make a request, like this: axios.get('http://localhost:3000/api/user/me', { withCredentials: true }).then(...).catch(...);
 
 const api=axios.create({
-    baseURL:"http://localhost:3000/api",
+    baseURL: import.meta.env.BACKEND_URL || "http://localhost:3000/api",
     withCredentials:true,
 })
 

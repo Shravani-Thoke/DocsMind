@@ -17,7 +17,7 @@ const Register = () => {
       e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/auth/register",
+        import.meta.env.BACKEND_URL + "/auth/register",
         { name, email, password },
         { withCredentials: true },
       );
@@ -33,7 +33,8 @@ const Register = () => {
   };
 
   const handleGoogleLogin = () => {
-  window.location.href = "http://localhost:3000/api/auth/google";
+      window.location.href = import.meta.env.CALLBACK_URL
+
 };
 
   return (
