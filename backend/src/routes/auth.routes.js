@@ -33,7 +33,7 @@ router.get("/google/callback",
         );
         res.cookie("token", token);
         // Redirect or respond with token
-        res.redirect(`http://localhost:5173/dashboard`); // Example redirect
+        res.redirect(process.env.CLIENT_URL+"/dashboard" || "http://localhost:5173/dashboard"); // Example redirect
     })
 
     
