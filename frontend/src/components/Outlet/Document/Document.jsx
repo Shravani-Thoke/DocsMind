@@ -27,7 +27,7 @@ const Document = () => {
 
   return (
     <div>
-      <div className="flex justify-between items-center ">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h1 className="text-2xl font-semibold">My Documents</h1>
           <p className="text-gray-500">
@@ -35,7 +35,7 @@ const Document = () => {
           </p>
         </div>
 
-        <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors"
+        <button className="w-full rounded-md bg-blue-500 px-4 py-2 text-white transition-colors hover:bg-blue-600 sm:w-auto"
           onClick={() => setIsOpen(true)}>
           + Upload Document
         </button>
@@ -43,13 +43,13 @@ const Document = () => {
       {loading ? (
         <p className="text-gray-500 mt-6">Loading documents...</p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
+        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4">
           {documents.length > 0 ? (
             documents.map((doc) => (
               <DocumentCard key={doc._id || doc.id} doc={doc} />
             ))
           ) : (
-            <p className="text-gray-500 ">
+            <p className="col-span-full text-gray-500">
               No documents found.
               <br />
               Start by uploading your first document!

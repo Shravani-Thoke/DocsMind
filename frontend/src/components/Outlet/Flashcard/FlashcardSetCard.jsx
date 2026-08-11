@@ -13,19 +13,19 @@ const FlashcardSetCard = ({ flashcardSet }) => {
     });
 
     return (
-        <div className="bg-white rounded-2xl shadow-sm p-6 hover:shadow-lg transition">
+        <div className="rounded-2xl bg-white p-5 shadow-sm transition hover:shadow-lg sm:p-6">
 
             <div className="flex items-center gap-3 mb-5">
                 <div className="bg-blue-100 p-3 rounded-xl">
                     <BookOpen className="text-blue-600" size={22} />
                 </div>
 
-                <div>
-                    <h3 className="font-semibold text-lg">
+                <div className="min-w-0">
+                    <h3 className="truncate font-semibold text-lg">
                         {flashcardSet.title}
                     </h3>
 
-                    <p className="text-sm text-gray-500">
+                    <p className="truncate text-sm text-gray-500">
                         {flashcardSet.documentName}
                     </p>
                 </div>

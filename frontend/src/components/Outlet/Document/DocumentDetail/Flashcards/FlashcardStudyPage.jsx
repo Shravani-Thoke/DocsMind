@@ -49,7 +49,7 @@ const FlashcardStudyPage = ({ setId, onBack }) => {
 
   return (
     
-    <div className="flex flex-col items-center ">
+    <div className="flex w-full flex-col items-center">
       <button
         onClick={onBack}
         className="text-blue-600 mb-6 flex gap-2 self-start hover:cursor-pointer"
@@ -60,23 +60,23 @@ const FlashcardStudyPage = ({ setId, onBack }) => {
         key={flashcards[currentIndex]?._id || currentIndex}
         flashcard={flashcards[currentIndex]}
       />
-      <div className="flex gap-6 mt-6">
+      <div className="mt-6 flex w-full flex-wrap items-center gap-3 sm:w-auto sm:flex-nowrap sm:gap-6">
         <button
           disabled={currentIndex === 0}
           onClick={prevCard}
-          className="px-4 py-2 flex flex-row gap-2 bg-gray-200 rounded-lg cursor-pointer hover:bg-gray-300"
+          className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-gray-200 px-4 py-2 cursor-pointer hover:bg-gray-300 disabled:cursor-not-allowed disabled:opacity-40 sm:flex-none"
         >
           <ChevronLeft />Previous
         </button>
 
-        <span className="bg-gray-100 px-4 py-2 rounded-lg">
+        <span className="order-first w-full rounded-lg bg-gray-100 px-4 py-2 text-center sm:order-none sm:w-auto">
           {currentIndex + 1} / {flashcards.length}
         </span>
 
         <button
           disabled={currentIndex === flashcards.length - 1}
           onClick={nextCard}
-          className="px-4 py-2 flex flex-row gap-2 bg-gray-200 rounded-lg cursor-pointer hover:bg-gray-300"
+          className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-gray-200 px-4 py-2 cursor-pointer hover:bg-gray-300 disabled:cursor-not-allowed disabled:opacity-40 sm:flex-none"
         >
           Next <ChevronRight />
         </button>

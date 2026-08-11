@@ -5,7 +5,7 @@ const FlashcardViewer = ({ flashcard }) => {
 
   return (
     <div
-      className="w-150 h-75 perspective cursor-pointer"
+      className="h-64 w-full max-w-150 cursor-pointer perspective sm:h-75"
       onClick={() => setFlipped(!flipped)}
     >
       <div
@@ -15,19 +15,19 @@ const FlashcardViewer = ({ flashcard }) => {
         style={{ transformStyle: "preserve-3d" }}
       >
         <div
-          className="absolute w-full h-full bg-white shadow-xl rounded-2xl flex items-center justify-center p-8 text-center"
+          className="absolute flex h-full w-full items-center justify-center rounded-2xl bg-white p-5 text-center shadow-xl sm:p-8"
           style={{ backfaceVisibility: "hidden" }}
         >
-          <h2 className="text-xl font-medium">
+          <h2 className="break-words text-lg font-medium sm:text-xl">
             {flashcard.question}
           </h2>
         </div>
 
         <div
-          className="absolute w-full h-full bg-green-600 text-white shadow-xl rounded-2xl flex items-center justify-center p-8 text-center rotate-y-180"
+          className="absolute flex h-full w-full items-center justify-center rounded-2xl bg-green-600 p-5 text-center text-white shadow-xl rotate-y-180 sm:p-8"
           style={{ backfaceVisibility: "hidden" }}
         >
-          <h2 className="text-xl font-medium">
+          <h2 className="break-words text-lg font-medium sm:text-xl">
             {flashcard.answer}
           </h2>
         </div>

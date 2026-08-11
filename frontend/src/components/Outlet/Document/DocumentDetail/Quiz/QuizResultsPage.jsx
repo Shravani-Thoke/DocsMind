@@ -7,8 +7,8 @@ const QuizResultsPage = ({ questions, selectedAnswers, onBack }) => {
   const percentage = Math.round((correct / total) * 100);
 
   return (
-    <div className="text-center">
-      <h2 className="text-2xl font-bold mb-4">
+    <div className="mx-auto max-w-md rounded-2xl bg-white p-5 text-center shadow-sm sm:p-8">
+      <h2 className="mb-4 text-2xl font-bold sm:text-3xl">
         Your Score: {percentage}%
       </h2>
 
@@ -18,7 +18,7 @@ const QuizResultsPage = ({ questions, selectedAnswers, onBack }) => {
 
       <button
         onClick={onBack}
-        className="mt-6 bg-blue-500 text-white px-4 py-2 rounded-lg"
+        className="mt-6 w-full rounded-lg bg-blue-500 px-4 py-3 text-white sm:w-auto"
       >
         Back to Quiz Sets
       </button>

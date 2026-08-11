@@ -47,10 +47,10 @@ if (!doc) return <p className="text-gray-500 mt-6">Document not found.</p>;
         <ChevronLeft />Back to Documents
         </button>
 
-      <h1 className="text-2xl font-semibold">{doc.title}</h1>
+      <h1 className="break-words text-2xl font-semibold">{doc.title}</h1>
 
       {/* Tabs */}
-      <div className="flex gap-6 border-b">
+      <div className="flex gap-5 overflow-x-auto border-b whitespace-nowrap sm:gap-6">
         {["content", "chat", "flashcards", "quizzes"].map((tab) => (
           <button
             key={tab}
@@ -67,9 +67,9 @@ if (!doc) return <p className="text-gray-500 mt-6">Document not found.</p>;
       </div>
 
       {/* Tab Content */}
-      <div className="bg-white rounded-xl shadow p-6 h-auto ">
+      <div className="h-auto rounded-xl bg-white p-4 shadow sm:p-6">
         {activeTab === "content" && (
-          <div className="h-140 bg-white rounded-xl shadow overflow-hidden">
+          <div className="h-[60vh] min-h-96 overflow-hidden rounded-xl bg-white shadow sm:h-[70vh]">
             <iframe
               src={doc.filePath}
               className="w-full h-full"

@@ -66,19 +66,18 @@ const QuizSetPage = ({documentId}) => {
       ) : (
         <>
           {/* HEADER */}
-          <div className="flex justify-between items-center mb-6">
-            <p></p>
+          <div className="mb-6 flex justify-end">
 
             <button
               onClick={() => setIsModalOpen(true)}
-              className="bg-blue-500 text-white px-4 py-2 rounded-lg cursor-pointer hover:bg-blue-600 flex items-center gap-2"
+              className="flex w-full items-center justify-center gap-2 rounded-lg bg-blue-500 px-4 py-2 text-white cursor-pointer hover:bg-blue-600 sm:w-auto"
             >
               <Plus className="w-4 h-4" /> Generate Quiz
             </button>
           </div>
 
           {/* GRID */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 xl:grid-cols-3">
             {sets.map((set) => (
               <QuizSetCard
                 key={set._id}

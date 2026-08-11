@@ -38,8 +38,8 @@ const GenerateQuizModal = ({ documentId, onClose, onSuccess }) => {
   };
   return (
     <div>
-      <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 ">
-        <div className="bg-white text-black w-100 h-auto rounded-2xl p-6 relative shadow-2xl">
+      <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black/60 p-4 backdrop-blur-sm">
+        <div className="relative w-full max-w-sm rounded-2xl bg-white p-5 text-black shadow-2xl sm:p-6">
           <span className="text-xl font-semibold mb-4 block">
             Generate a Quiz
           </span>

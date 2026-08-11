@@ -13,7 +13,7 @@ const FlashcardSetCard = ({ set, onSelect, onDelete }) => {
   return (
     <div
       onClick={onSelect}
-      className="group p-6 relative bg-white shadow-md rounded-2xl cursor-pointer hover:shadow-blue-500 transition"
+      className="group relative cursor-pointer rounded-2xl bg-white p-5 shadow-md transition hover:shadow-blue-500 sm:p-6"
     >
 
       <button
@@ -21,7 +21,8 @@ const FlashcardSetCard = ({ set, onSelect, onDelete }) => {
           e.stopPropagation();
           onDelete?.(set);
         }}
-        className="absolute top-5 right-5 text-lg text-gray-400 hover:text-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-200 cursor-pointer"
+        aria-label="Delete flashcard set"
+        className="absolute right-4 top-4 text-lg text-gray-400 opacity-100 transition-opacity duration-200 cursor-pointer hover:text-red-600 sm:right-5 sm:top-5 sm:opacity-0 sm:group-hover:opacity-100"
       >
         <Trash2 className="w-4 h-4" />
       </button>
@@ -31,7 +32,7 @@ const FlashcardSetCard = ({ set, onSelect, onDelete }) => {
         <Brain className="w-8 h-8 text-blue-500" />
       </div>
 
-      <h3 className="text-lg font-semibold mb-2">{set.title}</h3>
+      <h3 className="mb-2 truncate pr-7 text-lg font-semibold">{set.title}</h3>
 
       <p className="text-sm text-gray-500 mb-4">Created {date}</p>
 

@@ -1,12 +1,14 @@
 import React from "react";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
-import { User } from "lucide-react";
+import { Menu } from "lucide-react";
 import { getAvatarGradient } from "../../utils/avatarcolors";
 
-const Topbar = () => {
+const Topbar = ({ onMenuClick }) => {
  
   const { user, loading } = useContext(AuthContext);
+
+  if (loading || !user) return <div className="h-16 border-b border-gray-400" />;
 
    const initials = user.name
     .split(" ")
@@ -18,10 +20,17 @@ const Topbar = () => {
 
   console.log(user);
 
-  if (loading) return <div>Loading...</div>;
-
   return (
-    <div className="w-full border-b border-gray-400 py-2 flex justify-end flex-row">
+    <div className="flex w-full items-center justify-between border-b border-gray-400 py-2">
+      <button
+        type="button"
+        onClick={onMenuClick}
+        aria-label="Open navigation menu"
+        className="ml-4 rounded-lg p-2 text-gray-700 hover:bg-gray-100 md:hidden"
+      >
+        <Menu size={24} />
+      </button>
+      <div className="ml-auto flex flex-row">
       <div className="mr-2 p-1">
         {user.avatar ? (
           <div className=" h-11 w-11 rounded-2xl flex justify-center items-center">
@@ -40,7 +49,8 @@ const Topbar = () => {
               <p className="text-sm text-gray-600">{user.email}</p>
             </div>
           )}
-        </div>
+      </div>
+      </div>
     </div>
   );
 };

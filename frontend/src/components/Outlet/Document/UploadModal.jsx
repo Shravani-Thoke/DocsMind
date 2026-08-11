@@ -48,8 +48,8 @@ export default function UploadModal({ onClose, onUploaded }) {
   };
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 ">
-      <div className="bg-white text-black w-120 h-100 rounded-2xl p-6 relative shadow-2xl">
+    <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black/60 p-4 backdrop-blur-sm">
+      <div className="relative w-full max-w-md rounded-2xl bg-white p-5 text-black shadow-2xl sm:p-6">
         <span className="text-xl font-semibold mb-4 block">
             Upload your Document
         </span>
@@ -65,7 +65,7 @@ export default function UploadModal({ onClose, onUploaded }) {
         {/* Drag Area */}
         <div
           onClick={() => fileInputRef.current.click()}
-          className={`border-2 border-dashed rounded-xl h-56 flex flex-col items-center justify-center cursor-pointer transition
+          className={`border-2 border-dashed rounded-xl h-48 sm:h-56 flex flex-col items-center justify-center cursor-pointer transition
           ${
             file
               ? "border-green-500 bg-green-500/5"
@@ -102,7 +102,7 @@ export default function UploadModal({ onClose, onUploaded }) {
         <button
           onClick={handleUpload}
           disabled={loading || !file}
-          className="mt-6 w-full py-3 rounded-xl font-semibold bg-linear-to-r from-blue-600 to-blue-400 hover:opacity-90 transition disabled:opacity-50"
+          className="mt-6 w-full py-3 rounded-xl font-semibold text-white bg-linear-to-r from-blue-600 to-blue-400 hover:opacity-90 transition disabled:opacity-50"
         >
           {loading ? "Uploading..." : "Upload"}
         </button>

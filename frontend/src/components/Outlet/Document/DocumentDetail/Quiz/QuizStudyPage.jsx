@@ -60,8 +60,8 @@ const QuizStudyPage = ({ setId, onBack }) => {
   const question = questions[currentIndex];
 
   return (
-    <div>
-      <button className="flex flex-row cursor-pointer" onClick={onBack}>
+    <div className="mx-auto w-full max-w-3xl">
+      <button className="flex items-center text-sm text-gray-700 cursor-pointer sm:text-base" onClick={onBack}>
         <ChevronLeft /> Back
       </button>
 
@@ -74,7 +74,8 @@ const QuizStudyPage = ({ setId, onBack }) => {
         />
       </div>
 
-      <h2 className="text-xl font-semibold mb-6">{question.question}</h2>
+      <p className="mb-2 text-sm font-medium text-gray-500">Question {currentIndex + 1} of {questions.length}</p>
+      <h2 className="mb-6 break-words text-xl font-semibold sm:text-2xl">{question.question}</h2>
 
       <div className="space-y-3">
         {question.options.map((opt, idx) => (
@@ -86,7 +87,7 @@ const QuizStudyPage = ({ setId, onBack }) => {
                 [currentIndex]: idx,
               })
             }
-            className={`w-full border p-4 rounded-xl text-left ${
+            className={`w-full break-words border p-3 rounded-xl text-left transition sm:p-4 ${
               selectedAnswers[currentIndex] === idx
                 ? "border-green-500 bg-green-50"
                 : "border-gray-300"
@@ -97,9 +98,29 @@ const QuizStudyPage = ({ setId, onBack }) => {
         ))}
       </div>
 
-      <div className="flex justify-between mt-8">
+      <div className="mt-8 space-y-4">
+        <div className="flex max-w-full gap-2 overflow-x-auto pb-1">
+          {questions.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              aria-label={`Go to question ${index + 1}`}
+              className={`h-10 min-w-10 rounded-lg font-semibold transition ${
+                currentIndex === index
+                  ? "bg-blue-600 text-white"
+                  : selectedAnswers[index] !== undefined
+                    ? "bg-green-100 text-green-600"
+                    : "bg-gray-200 text-gray-600"
+              }`}
+            >
+              {index + 1}
+            </button>
+          ))}
+        </div>
+
+        <div className="flex flex-row items-center justify-between gap-3">
         <button
-          className="flex flex-row items-center cursor-pointer text-gray-700"
+          className="flex flex-1 items-center justify-center rounded-lg border border-gray-200 px-4 py-2 text-gray-700 cursor-pointer disabled:cursor-not-allowed disabled:opacity-40 sm:flex-none"
           disabled={currentIndex === 0}
           onClick={prevCard}
         >
@@ -107,41 +128,22 @@ const QuizStudyPage = ({ setId, onBack }) => {
           Previous
         </button>
 
-        <div className="flex overflow-x-auto gap-2 hide-scrollbar max-w-150">
-          {questions.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentIndex(index)}
-              className={`min-w-10 h-10 rounded-lg font-semibold transition
-          ${
-            currentIndex === index
-              ? "bg-blue-600 text-white"
-              : selectedAnswers[index] !== undefined
-                ? "bg-green-100 text-green-600"
-                : "bg-gray-200 text-gray-600"
-          }
-        `}
-            >
-              {index + 1}
-            </button>
-          ))}
-        </div>
-
         {currentIndex === questions.length - 1 ? (
           <button
-            className="flex flex-row items-center bg-emerald-600 text-white px-4 h-auto rounded-lg cursor-pointer hover:bg-emerald-700 transition"
+            className="flex flex-1 items-center justify-center rounded-lg bg-emerald-600 px-4 py-2 text-white cursor-pointer transition hover:bg-emerald-700 sm:flex-none"
             onClick={() => setShowResults(true)}
           >
             <CircleCheck className="mr-2 h-5" />Submit Quiz
           </button>
         ) : (
           <button
-            className="flex flex-row items-center bg-blue-600 text-white px-4 h-auto rounded-lg cursor-pointer hover:bg-blue-700 transition"
+            className="flex flex-1 items-center justify-center rounded-lg bg-blue-600 px-4 py-2 text-white cursor-pointer transition hover:bg-blue-700 sm:flex-none"
             onClick={nextCard}
           >
             Next <ChevronRight />
           </button>
         )}
+        </div>
       </div>
     </div>
   );

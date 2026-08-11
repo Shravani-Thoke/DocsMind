@@ -99,6 +99,8 @@ Each question MUST contain exactly 4 options.
 No more, no less.
 If you cannot generate 4 options, do not include that question.
 options must be distinct and plausible (no duplicates, no obviously wrong answers).
+the position of the correct answer must be randomized for each question.
+
 
 Return ONLY raw JSON.
 Do NOT include explanations.

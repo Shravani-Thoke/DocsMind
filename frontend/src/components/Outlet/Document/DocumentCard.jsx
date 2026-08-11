@@ -32,28 +32,28 @@ const getTimeAgo = (dateString) => {
   return (
     <button 
     onClick={() => navigate(`/documents/${doc._id}`)}
-    className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 
-                hover:shadow-md hover:-translate-y-1 
+    className="w-full bg-white rounded-2xl p-5 text-left shadow-sm border border-gray-100 
+                hover:shadow-md sm:p-6 sm:hover:-translate-y-1 
                 transition-all duration-200 cursor-pointer">
 
   <div className="w-12 h-12 rounded-xl bg-blue-500 flex items-center justify-center text-white">
     <FileText/>
   </div>
 
-  <h3 className=" flex items-start mt-4 font-semibold text-gray-800 text-md leading-tight">
+  <h3 className="mt-4 truncate font-semibold text-gray-800 text-md leading-tight">
     {doc.title}
   </h3>
 
-  <p className=" flex items-start text-xs text-gray-500 mt-1">
+  <p className="text-xs text-gray-500 mt-1">
     {(doc.fileSize / 1024).toFixed(1)} KB
   </p>
 
-  <div className="flex gap-3 mt-4">
-    <span className="text-xs bg-purple-100 text-purple-600 px-3 py-1 rounded-full font-medium">
+  <div className="mt-4 flex flex-wrap gap-2">
+    <span className="whitespace-nowrap text-xs bg-purple-100 text-purple-600 px-3 py-1 rounded-full font-medium">
       {doc.flashcardsCount} Flashcards
     </span>
 
-    <span className="text-xs bg-emerald-100 text-emerald-600 px-3 py-1 rounded-full font-medium">
+    <span className="whitespace-nowrap text-xs bg-emerald-100 text-emerald-600 px-3 py-1 rounded-full font-medium">
       {doc.quizzesCount} Quizzes
     </span>
   </div>
