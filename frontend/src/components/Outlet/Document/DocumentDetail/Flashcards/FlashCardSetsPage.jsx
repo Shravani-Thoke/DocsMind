@@ -4,7 +4,7 @@ import FlashcardStudyPage from "./FlashcardStudyPage";
 import axios from "../../../../../api/axios";
 import { Brain, Plus } from "lucide-react";
 import DeleteModal from "./DeleteModal";
-import GenerateFlashcard from "./generateFlashcard";
+import GenerateFlashcard from "./GenerateFlashcard";
 
 const FlashCardSetsPage = ({ documentId }) => {
   const [sets, setSets] = useState([]);
