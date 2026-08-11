@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 const Nav = () => {
   return (
     <div className="w-full">
-      <nav className="flex items-center justify-between px-4 sm:px-8 lg:px-20">
-        <div className="h-20 w-28 overflow-hidden sm:h-28 sm:w-40 lg:h-35 lg:w-50">
+      <nav className="flex items-center justify-between px-0 sm:px-8 lg:pr-10 ">
+        <div className="h-10 w-18 overflow-hidden sm:h-28 sm:w-40 lg:h-35 ">
         <img className="h-full w-full object-cover object-center" src={logo} alt="DocsMind AI Logo" />
         </div>
 
