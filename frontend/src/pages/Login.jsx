@@ -19,7 +19,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        import.meta.env.BACKEND_URL + "/auth/login",
+        import.meta.env.VITE_API_URL + "/auth/login",
         { email, password },
         { withCredentials: true },
       );
@@ -39,7 +39,7 @@ const Login = () => {
   };
 
   const handleGoogleLogin = () => {
-    window.location.href = import.meta.env.VITE_CALLBACK_URL;
+    window.location.href =`${import.meta.env.VITE_API_URL}/auth/google`;
   };
 
   return (

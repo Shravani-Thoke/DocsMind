@@ -17,7 +17,7 @@ const Register = () => {
       e.preventDefault();
     try {
       const response = await axios.post(
-        import.meta.env.BACKEND_URL + "/auth/register",
+        import.meta.env.VITE_API_URL + "/auth/register",
         { name, email, password },
         { withCredentials: true },
       );
@@ -33,7 +33,7 @@ const Register = () => {
   };
 
   const handleGoogleLogin = () => {
-      window.location.href = import.meta.env.VITE_CALLBACK_URL
+      window.location.href =  `${import.meta.env.VITE_API_URL}/auth/google/callback`;
 
 };
 
