@@ -39,7 +39,7 @@ const Login = () => {
   };
 
   const handleGoogleLogin = () => {
-    window.location.href = import.meta.env.VITE_CALLBACK_URL || "http://localhost:3000/api/auth/google/callback";
+    window.location.href = import.meta.env.VITE_CALLBACK_URL;
   };
 
   return (
