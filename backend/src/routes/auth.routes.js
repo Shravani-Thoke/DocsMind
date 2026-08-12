@@ -31,7 +31,11 @@ router.get("/google/callback",
             },
             process.env.JWT_SECRET
         );
-        res.cookie("token", token);
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: true,
+            sameSite: "None",
+        });
         // Redirect or respond with token
         res.redirect(
             `${process.env.CLIENT_URL || "http://localhost:5173"}/dashboard`
