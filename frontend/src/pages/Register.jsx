@@ -33,7 +33,7 @@ const Register = () => {
   };
 
   const handleGoogleLogin = () => {
-      window.location.href = import.meta.env.CALLBACK_URL
+      window.location.href = import.meta.env.VITE_CALLBACK_URL
 
 };
 
